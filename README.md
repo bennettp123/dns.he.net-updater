@@ -1,6 +1,6 @@
 ### dns.he.net powershell dynamic dns updater
 
-A very basic updater for dynamic DNS services provided by <http://dns.he.net/>. Very trivial to convert for use with other dynamic DNS providers.
+A very basic updater for dynamic DNS services provided by <http://dns.he.net/>.
 
 ## Instructions:
 
