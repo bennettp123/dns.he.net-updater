@@ -8,7 +8,7 @@ A very basic updater for dynamic DNS services provided by <http://dns.he.net/>.
  2. By default, a custom IP is not sent. If you wish to send a custom IP address, uncomment the two lines below the $myip variable.
  3. If necessary, launch powershell and run the following command: `Set-ExecutionPolicy RemoteSigned`.
  4. Run updater.ps1.
- 5. [Optional]: Use the pshelwrapper.vbs when creating a scheduled task to hide the powershell window.
+ 5. [Optional]: Use the pshellwrapper.vbs when creating a scheduled task to hide the powershell window.
  
 License: Freeware.<br />Warranty: None.
 
