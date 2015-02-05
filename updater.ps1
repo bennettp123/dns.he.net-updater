@@ -6,7 +6,6 @@ $password = "PASSWORD"
 $url = "https://dyn.dns.he.net/nic/update?hostname={0}&password={1}" -f $hostname, $password
 
 $regkey = 'HKCU:\Software\bennettp123\dns.he.updater'
-New-Item -Path $regkey -Type directory -Force 2>$null
 
 # get oldip from registry
 $oldip = $( (Get-ItemProperty -path $regkey).oldip 2>$null )
@@ -28,12 +27,13 @@ $myip = $( $wc.DownloadString("http://checkip.dns.he.net") | ForEach-Object {
 #$myip = @(Get-IPAddresses | where { $_ -match "10.25.64.*" })[0]
 #$url = "https://dyn.dns.he.net/nic/update?hostname={0}&password={1}&myip={2}" -f $hostname, $password, $myip
 
-# quit if oldip=newip
+# quit if oldip == newip
 if ($myip -eq $oldip) { exit 0; }
 
 # send newip to dyn.dns.he.net; save to registry if successful
 $wc.DownloadString($url) | ForEach-Object {
-  if ($_ -match 'good (.*)') { $matches[1]; }
+  if ($_ -match '(good|nochg) (.*)') { $matches[2]; }
 } | ForEach-Object { 
-  Set-ItemProperty -path $regkey -name oldip -value $_;
-}
+  New-Item -Path $regkey -Type directory -Force
+  Set-ItemProperty -path $regkey -name oldip -value $_ 
+} >$null 2>&1
