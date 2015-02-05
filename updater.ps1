@@ -19,7 +19,7 @@ $wc = Get-Webclient
 $regex = 'Your (Proxy)? IPaddress is : ([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})\(via ([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})\)?'
 $myip = $( $wc.DownloadString("http://checkip.dns.he.net") | ForEach-Object {
   if ($_ -match $regex) {
-    if ($matches[4]) { $matches[4]; } else { $matches[3]; }
+    if ($matches[3]) { $matches[3]; } else { $matches[2]; }
   }
 })
 
