@@ -13,10 +13,9 @@ None. :p
 ## Instructions
 
  1. Edit updater.ps1 in a text editor, and modify the hostname and password fields.
- 2. By default, a custom IP is not sent. If you wish to send a custom IP address, uncomment the two lines below the $myip variable.
- 3. If necessary, launch powershell and run the following command: `Set-ExecutionPolicy RemoteSigned`.
- 4. Run updater.ps1.
- 5. [Optional]: Use the pshellwrapper.vbs when creating a scheduled task to hide the powershell window:
+ 2. If necessary, launch powershell and run the following command: `Set-ExecutionPolicy RemoteSigned`.
+ 3. Run updater.ps1.
+ 4. [Optional]: Use the pshellwrapper.vbs when creating a scheduled task to hide the powershell window:
  
 ### pshellwrapper.vbs usage
 
